@@ -98,7 +98,7 @@ public abstract class BaseMapping implements Mapping {
     }
 
     @Override
-    public void process(Node node) {
+    public void processNode(Node node) {
         processNodeAttributes(node, item -> {
             String elementName = item.getNodeName();
             String nodeValue = item.getNodeValue();

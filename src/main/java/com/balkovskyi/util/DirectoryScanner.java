@@ -1,4 +1,4 @@
-package com.balkovskyi.hibernate;
+package com.balkovskyi.util;
 
 import java.io.File;
 import java.util.Objects;

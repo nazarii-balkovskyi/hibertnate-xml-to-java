@@ -1,4 +1,4 @@
-package com.balkovskyi.hibernate;
+package com.balkovskyi.util;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -29,8 +29,7 @@ public class GetterAndSetterGenerator {
 
     private void setter(StringBuilder builder, String field, String type) {
         builder.append("\t")
-                .append("public ").append(type).append(" set")
-                .append(capitalize(field))
+                .append("public void set").append(capitalize(field))
                 .append("(").append(type).append(" ").append(field).append(") {")
                 .append(System.lineSeparator());
         builder.append("\t")

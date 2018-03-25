@@ -2,11 +2,13 @@ package com.balkovskyi.hibernate;
 
 import com.balkovskyi.hibernate.mapping.HibernateEntityMapping;
 import com.balkovskyi.hibernate.mapping.model.Mapping;
+import com.balkovskyi.model.ResultCollector;
+import com.balkovskyi.util.GetterAndSetterGenerator;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
-public class HibernateMappingContext {
+public class HibernateMappingContext implements ResultCollector<Mapping> {
     private final String outputFileSuffix;
     private String packageName;
     private Set<String> imports;
@@ -25,7 +27,8 @@ public class HibernateMappingContext {
         this.outputFileSuffix = StringUtils.isNoneBlank(outputFileSuffix) ? "_" + outputFileSuffix : "";
     }
 
-    public void addMapping(Mapping mapping) {
+    @Override
+    public void collect(Mapping mapping) {
         this.mappings.add(mapping);
         if (mapping instanceof HibernateEntityMapping) {
             String classPackage = ((HibernateEntityMapping) mapping).getPackage();

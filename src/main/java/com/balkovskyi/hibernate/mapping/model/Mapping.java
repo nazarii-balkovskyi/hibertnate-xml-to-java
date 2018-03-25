@@ -10,5 +10,5 @@ public interface Mapping {
     String mappedElement();
     String generateDefinition();
     Set<String> imports();
-    void process(Node node);
+    void processNode(Node node);
 }
